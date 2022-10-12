@@ -34,6 +34,9 @@ dependencies {
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:30.4.1')
 
+    // Declare Google Play services as a dependency (Google Sign-in)
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
+
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
