@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "81280023126",
+    "project_id": "quran-tracker-b19c7",
+    "storage_bucket": "quran-tracker-b19c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81280023126:android:b9034e5ee9307cc09b19f7",
+        "android_client_info": {
+          "package_name": "com.example.quran_tracker_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81280023126-l7cqvnq0oi6v78tq6dnvf44dtajta09i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpIvq96mJcSQ-RxTEbewpDc5QLODsUKoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81280023126-l7cqvnq0oi6v78tq6dnvf44dtajta09i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
