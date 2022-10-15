@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/settings_toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/title_activity_settings" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/settings_chip_googleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:contentDescription="@string/contentDescription_GoogleSignIn"
+            android:text="@string/chipText_GoogleSignIn"
+            android:textColor="@color/common_google_signin_btn_text_dark"
+            android:textSize="20sp"
+            app:chipBackgroundColor="@color/design_default_color_on_secondary"
+            app:chipIcon="@drawable/google_logo"
+            app:chipIconSize="28dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/settings_chip_sync"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:contentDescription="@string/contentDescription_sync"
+            android:text="@string/chipText_sync"
+            android:textColor="@color/common_google_signin_btn_text_dark"
+            android:textSize="20sp"
+            app:chipBackgroundColor="@color/design_default_color_on_secondary"
+            app:chipIcon="@drawable/ic_baseline_sync_24"
+            app:chipIconSize="28dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

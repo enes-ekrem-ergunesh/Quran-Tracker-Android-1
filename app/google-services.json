@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "81280023126",
+    "firebase_url": "https://quran-tracker-b19c7-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "quran-tracker-b19c7",
     "storage_bucket": "quran-tracker-b19c7.appspot.com"
   },

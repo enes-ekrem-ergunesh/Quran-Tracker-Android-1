@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Quran Tracker</string>
-    <string name="action_add">Add New Record</string>
+
+    // MainActivity
+    <string name="title_activity_main">@string/app_name</string>
+
+    // ActionBar
+    <string name="action_add">Add new record</string>
     <string name="action_settings">Settings</string>
+
+    // SettingsActivity
+    <string name="title_activity_settings">@string/action_settings</string>
+    <string name="chipText_GoogleSignIn">Sign-in</string>
+    <string name="contentDescription_GoogleSignIn">Sign-in with Google</string>
+    <string name="chipText_sync">Sync</string>
+    <string name="contentDescription_sync">Sync</string>
+
 </resources>
