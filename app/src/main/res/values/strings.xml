@@ -4,15 +4,31 @@
     // MainActivity
     <string name="title_activity_main">@string/app_name</string>
 
-    // ActionBar
-    <string name="action_add">Add new record</string>
-    <string name="action_settings">Settings</string>
+        // ActionBar
+        <string name="action_add">Add new record</string>
+        <string name="action_settings">Settings</string>
+
+        // TabLayout
+        <string name="tabItem_recitation">Recitation</string>
+        <string name="tabItem_chapter">Chapter</string>
+
 
     // SettingsActivity
     <string name="title_activity_settings">@string/action_settings</string>
-    <string name="chipText_GoogleSignIn">Sign-in</string>
-    <string name="contentDescription_GoogleSignIn">Sign-in with Google</string>
+    <string name="chipText_GoogleSignIn">Sign in</string>
+    <string name="chipText_GoogleSignOut">Sign out</string>
+    <string name="contentDescription_GoogleSignIn">Sign in with Google</string>
+    <string name="contentDescription_GoogleSignOut">Sign out</string>
     <string name="chipText_sync">Sync</string>
     <string name="contentDescription_sync">Sync</string>
+
+    // AddActivity
+    <string name="title_activity_add">@string/action_add</string>
+    <string name="editText_name">Name</string>
+    <string name="editText_chapterNo">Chapter No</string>
+    <string name="button_add">Add</string>
+
+
+
 
 </resources>
