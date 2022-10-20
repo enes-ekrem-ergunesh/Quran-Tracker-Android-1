@@ -13,8 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    //dummy comment
-
     /* Layout variables */
     MaterialToolbar toolbar;
 
