@@ -1,18 +1,22 @@
 package com.example.quran_tracker_1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import com.example.quran_tracker_1.R;
+import com.example.quran_tracker_1.adapters.MainViewPagerAdapter;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     MaterialToolbar toolbar;
     TabLayout tabLayout;
     TabItem tab_recitation, tab_chapter;
+    ViewPager2 viewPager;
+    FragmentStateAdapter pagerAdapter;
+
+
 
     /* Firebase variables */
     private DatabaseReference mDatabase;
@@ -31,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         /* Layout variables */
         onCreate_tab();
-        onCreate_toolbar();
+        onCreate_toolBar();
+        onCreate_viewPager();
 
         /* Firebase variables */
         onCreate_firebase();
@@ -39,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // TOOLBAR
-    private void onCreate_toolbar(){
+    private void onCreate_toolBar(){
         toolbar = findViewById(R.id.main_toolbar);
         toolbar.setTitle(R.string.title_activity_main);
 
@@ -72,14 +81,11 @@ public class MainActivity extends AppCompatActivity {
         tab_recitation = findViewById(R.id.main_tabItem_recitation);
         tab_chapter = findViewById(R.id.main_tabItem_chapter);
 
-        // Enable/Disable chapterNo when tab changes
+        // On tab change, change the current page on viewPager
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if(tab.getPosition() == 0){
-                }
-                else{
-                }
+                viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -94,8 +100,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // VIEWPAGER
+    private void onCreate_viewPager(){
+        viewPager = findViewById(R.id.main_viewPager);
+        pagerAdapter = new MainViewPagerAdapter(this);
+        viewPager.setAdapter(pagerAdapter);
 
-
+        // On page change, change the selected tab on tabLayout
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                Objects.requireNonNull(tabLayout.getTabAt(position)).select();
+            }
+        });
+    }
 
 
 
