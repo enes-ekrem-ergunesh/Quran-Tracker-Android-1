@@ -4,13 +4,13 @@
     // MainActivity
     <string name="title_activity_main">@string/app_name</string>
 
-        // ActionBar
-        <string name="action_add">Add new record</string>
-        <string name="action_settings">Settings</string>
+    // ActionBar
+    <string name="action_add">Add new record</string>
+    <string name="action_settings">Settings</string>
 
-        // TabLayout
-        <string name="tabItem_recitation">Recitation</string>
-        <string name="tabItem_chapter">Chapter</string>
+    // TabLayout
+    <string name="tabItem_recitation">Recitation</string>
+    <string name="tabItem_chapter">Chapter</string>
 
 
     // SettingsActivity
@@ -27,8 +27,8 @@
     <string name="editText_name">Name</string>
     <string name="editText_chapterNo">Chapter No</string>
     <string name="button_add">Add</string>
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
