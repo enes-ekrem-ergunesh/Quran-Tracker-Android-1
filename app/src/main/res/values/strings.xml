@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Quran Tracker</string>
+    <string name="preference_file_key">com.example.quran_tracker_1.PREFERENCE_FILE_KEY</string>
 
-    // MainActivity
+    /* MainActivity */
     <string name="title_activity_main">@string/app_name</string>
 
     // ActionBar
@@ -12,7 +13,15 @@
     <string name="tabItem_recitation">Recitations</string>
     <string name="tabItem_chapter">Chapters</string>
 
-    // SettingsActivity
+    // Recitation Fragment
+    <string name="recitation_button_delete_contentDescription">Delete the recitation</string>
+
+    // Chapter Fragment
+    <string name="recycler_mark_threadIsAlive">Marker is busy! Please wait…</string>
+    <string name="recycler_delete_threadIsAlive">Deleter is busy! Please wait…</string>
+
+
+    /* SettingsActivity */
     <string name="title_activity_settings">@string/action_settings</string>
     <string name="chipText_GoogleSignIn">Sign in</string>
     <string name="chipText_GoogleSignOut">Sign out</string>
@@ -21,10 +30,20 @@
     <string name="chipText_sync">Sync</string>
     <string name="contentDescription_sync">Sync</string>
 
-    // AddActivity
+    /* AddActivity */
     <string name="title_activity_add">@string/action_add</string>
     <string name="editText_name">Name</string>
     <string name="editText_chapterNo">Chapter No</string>
     <string name="button_add">Add</string>
+
+    <string name="toast_add_duplicateRecitation">Recitation with same name already exists!</string>
+    <string name="toast_add_emptyName">Please enter a name.</string>
+    <string name="toast_add_longName">Name is too long!</string>
+
+    <string name="toast_add_duplicateChapter">Chapter with same name and number already exists!</string>
+    <string name="toast_add_emptyChapterNo">Please enter a Chapter No.</string>
+    <string name="toast_add_invalidChapterNo">Invalid Chapter No!</string>
+    <string name="toast_add_outOfLimitChapterNo">Chapter No should be between 1–30!</string>
+
 
 </resources>

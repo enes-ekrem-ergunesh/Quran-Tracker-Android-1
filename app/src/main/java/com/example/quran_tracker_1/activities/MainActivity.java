@@ -1,13 +1,21 @@
 package com.example.quran_tracker_1.activities;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.quran_tracker_1.ItemViewModel;
 import com.example.quran_tracker_1.R;
 import com.example.quran_tracker_1.adapters.MainViewPagerAdapter;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -20,17 +28,24 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+
     /* Layout variables */
     MaterialToolbar toolbar;
     TabLayout tabLayout;
     TabItem tab_recitation, tab_chapter;
+
+    /* ViewPager variables */
     ViewPager2 viewPager;
     FragmentStateAdapter pagerAdapter;
+    private ItemViewModel viewModel;
 
 
 
     /* Firebase variables */
     private DatabaseReference mDatabase;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         onCreate_tab();
         onCreate_toolBar();
         onCreate_viewPager();
+
 
         /* Firebase variables */
         onCreate_firebase();
@@ -59,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             // start add activity with selected tab position
             Intent intentAdd = new Intent(getApplicationContext(), AddActivity.class);
             intentAdd.putExtra("main_tab_position", tabLayout.getSelectedTabPosition());
-            startActivity(intentAdd);
+            addActivityResultLauncher.launch(intentAdd);
 
             return false;
         });
@@ -106,6 +122,9 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new MainViewPagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
 
+        viewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+
+
         // On page change, change the selected tab on tabLayout
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -114,10 +133,24 @@ public class MainActivity extends AppCompatActivity {
                 Objects.requireNonNull(tabLayout.getTabAt(position)).select();
             }
         });
+
+
     }
 
 
-
+    ActivityResultLauncher<Intent> addActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    // There are no request codes
+                    Intent data = result.getData();
+                    assert data != null;
+                    Bundle bundle = data.getExtras();
+                    viewModel.selectItem(bundle);
+                    Log.d("onActivityResult", bundle.getString("chapter_name"));
+                }
+            }
+    );
 
 
 
